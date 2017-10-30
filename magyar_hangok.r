@@ -119,7 +119,6 @@ for(i in sample(1:length(sound_files))) {
   log = rbind(log,perf)
   cat("\nPress [enter] to continue.")
   invisible(readLines("stdin",n=1))
-  break
 }
 
 cat('Trials Complete!')

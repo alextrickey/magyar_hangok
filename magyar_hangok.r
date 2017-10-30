@@ -129,12 +129,13 @@ for(i in sample(1:length(sound_files))) {
 
 cat('Trials Complete!')
 cat('\nSave results to log file (y/n)?')
+write_to_log = invisible(readLines("stdin",n=1))
 
 names(log) = c('file','actual','response')
+log[] = lapply(log, as.character)
 log['correct'] = log['actual'] == log['response']
 
-write_to_log = invisible(readLines("stdin",n=1))
-if( !(write_to_log == 'n')) {
+if( write_to_log != 'n') {
   if(!is.element('performance.csv',list.files())) {
     log['date'] = format(Sys.Date())
     log['ts'] = format(Sys.time())
@@ -145,4 +146,4 @@ if( !(write_to_log == 'n')) {
 }
 
 cat(paste('\n\nAccuracy:',100*sum(log$correct)/(dim(log)[1])))
-cat("\n Motivational message!\n \n ")
+cat("\n Motivational message! bleh blah good job :p :)\n \n ")

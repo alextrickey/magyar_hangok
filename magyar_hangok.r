@@ -49,12 +49,18 @@ get_character_map <- function(subset=NA) {
 }
 
 print_intro <- function(character_map) {
-  cat('\nWelcome to your Hungarian Perceptual Trainer!
-    The letters to be used in the following exercises
-    are listed below. You may use either the ascii or
-    special characters to respond to the prompt.\n\n')
+  cat('\no------------------------------------------------------o')
+  cat('\n| Welcome to the Hungarian Phoneme Perceptual Trainer! |')
+  cat('\no------------------------------------------------------o')
+  cat("\n\nPress [enter] to begin (or use 'ctrl+z' to exit at any time).")
+  invisible(readLines("stdin",n=1))
+
+  cat('\nThe letters to be used in the following exercises are listed',
+      '\nbelow. You may use either the ascii or special characters to',
+      '\nrespond to the prompt.\n\n')
   print(character_map)
-  cat("\n\n    Press [enter] to begin (or 'ctrl+z' to exit).")
+
+  cat("\nPress [enter] to begin the trials.")
   invisible(readLines("stdin",n=1))
 }
 

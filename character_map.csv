@@ -1,41 +1,41 @@
-special, ascii
-a, a 
-á, a_accent
-b, b
-c, c
-cs, cs
-d, d
-dz, dz
-dzs, dzs
-e, e
-é, e_accent
-f, f
-g, g
-gy, gy
-h, h
-i, i
-í, i_accent
-j, j
-k, k
-l, l
-ly, ly
-m, m
-n, n
-ny, ny
-o, o
-ó, o_accent
-ö, o_umlaut
-ő, o_umlaut_accent
-p, p
-r, r
-s, s
-sz, sz
-t, t
-ty, ty
-u, u
-ú, u_accent
-ü, u_umlaut
-ű, u_umlaut_accent
-v, v
-z, z
-zs, zs
+special,ascii
+a,a
+á,a_accent
+b,b
+c,c
+cs,cs
+d,d
+dz,dz
+dzs,dzs
+e,e
+é,e_accent
+f,f
+g,g
+gy,gy
+h,h
+i,i
+í,i_accent
+j,jsigmoid
+k,k
+l,l
+ly,ly
+m,m
+n,n
+ny,ny
+o,o
+ó,o_accent
+ö,o_umlaut
+ő,o_umlaut_accent
+p,p
+r,r
+s,s
+sz,sz
+t,t
+ty,ty
+u,u
+ú,u_accent
+ü,u_umlaut
+ű,u_umlaut_accent
+v,v
+z,z
+zs,zs

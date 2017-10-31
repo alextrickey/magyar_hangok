@@ -108,7 +108,7 @@ sound_it_out <- function(word,char=NA) {
   file_lookup = paste(unlist(char$map$ascii),'_1.mp3',sep='')
   names(file_lookup) = unlist(char$map$special)
 
-  word_chars = unlist(strsplit(word,''))
+  word_chars = parse_word(word)
   sound_files = file_lookup[word_chars]
 
   #Change default audio player for macs
@@ -120,4 +120,29 @@ sound_it_out <- function(word,char=NA) {
     s = readMP3(file.path('sounds',f))
     play(s)
   }
+}
+
+parse_word <- function(word,char=NA) {
+
+  if(is.na(char)) {
+    char = get_character_map()
+  }
+
+  single_chars = unlist(strsplit(word,''))
+  n_singles = length(single_chars)
+
+  word_chars = c()
+  l=1
+  while (l <= n_singles) {
+    for (i in 2:0) {
+      letter_chunk = paste(single_chars[l:min(l+i,n_singles)],collapse='')
+      if(is.element(letter_chunk,char$map$special)){
+        word_chars = c(word_chars,letter_chunk)
+        l=l+i
+        break
+      }
+    }
+    l=l+1
+  }
+  return(word_chars)
 }

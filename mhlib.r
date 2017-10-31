@@ -1,3 +1,20 @@
+#Libs
+library(tuneR)
+
+#TODO: Enable custom letter set practice
+#TODO: Allow user to control n trials
+
+# #Constants
+# VOWELS = c(
+#   'a', 'a_accent',
+#   'e', 'e_accent',
+#   'i', 'i_accent',
+#   'o', 'o_accent','o_umlaut','o_umlaut_accent',
+#   'u', 'u_accent','u_umlaut','u_umlaut_accent'
+#   )
+# EQUIV = c('y','ly') #These are actually phoenetically equivalent?
+
+
 get_os <- function(){
 #Source: https://www.r-bloggers.com/identifying-the-os-from-r/
   sysinf <- Sys.info()
@@ -79,4 +96,28 @@ check_user_input <- function(user_letter,actual_letter,char) {
                   actual_diacritic,
                   user_diacritic),nrow=1)
   return(perf)
+}
+
+
+sound_it_out <- function(word,char=NA) {
+
+  if(is.na(char)) {
+    char = get_character_map()
+  }
+
+  file_lookup = paste(unlist(char$map$ascii),'_1.mp3',sep='')
+  names(file_lookup) = unlist(char$map$special)
+
+  word_chars = unlist(strsplit(word,''))
+  sound_files = file_lookup[word_chars]
+
+  #Change default audio player for macs
+  if(get_os() == 'osx') {
+      setWavPlayer('/usr/bin/afplay')
+  }
+
+  for(f in sound_files) {
+    s = readMP3(file.path('sounds',f))
+    play(s)
+  }
 }

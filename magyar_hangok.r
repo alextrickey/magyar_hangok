@@ -49,5 +49,5 @@ if( write_to_log != 'n') {
   write.table(log, file='performance.csv', row.names=FALSE, col.names=FALSE, append=TRUE, sep=",")
 }
 
-cat(paste('\n\nAccuracy:',100*sum(log$correct)/(dim(log)[1],'%')))
+cat(paste('\n\nPercent Accuracy:',100*sum(log$correct)/(dim(log)[1])))
 cat("\n Motivational message! bleh blah good job :p :)\n \n ")

@@ -14,6 +14,9 @@ library(tuneR)
 #   )
 # EQUIV = c('y','ly') #These are actually phoenetically equivalent?
 
+#Hard sets
+#gees = c(g,gy)
+
 
 get_os <- function(){
 #Source: https://www.r-bloggers.com/identifying-the-os-from-r/
@@ -32,6 +35,7 @@ get_os <- function(){
   tolower(os)
 }
 
+
 get_character_map <- function(subset=NA) {
   #Load mapping between ascii/special characters
   character_map = read.csv('character_map.csv',
@@ -48,6 +52,7 @@ get_character_map <- function(subset=NA) {
   char = list('map'=character_map,'lookup'=character_lookup,'all'=all_letters)
   return(char)
 }
+
 
 print_intro <- function(character_map) {
   cat('\no------------------------------------------------------o')
@@ -79,6 +84,7 @@ get_user_letter <- function(letter_set) {
   }
   return(user_letter)
 }
+
 
 check_user_input <- function(user_letter,actual_letter,char) {
 
@@ -122,15 +128,19 @@ sound_it_out <- function(word,char=NA) {
   }
 }
 
+
 parse_word <- function(word,char=NA) {
 
+  #Load character map if needed
   if(is.na(char)) {
     char = get_character_map()
   }
 
+  #Get characters
   single_chars = unlist(strsplit(word,''))
   n_singles = length(single_chars)
 
+  #Find and isolate multicharacter letters
   word_chars = c()
   l=1
   while (l <= n_singles) {

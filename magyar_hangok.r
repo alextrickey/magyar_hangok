@@ -1,18 +1,3 @@
-#Libs
-library(tuneR)
-
-#TODO: Enable custom letter set practice
-#TODO: Allow user to control n trials
-
-# #Constants
-# VOWELS = c(
-#   'a', 'a_accent',
-#   'e', 'e_accent',
-#   'i', 'i_accent',
-#   'o', 'o_accent','o_umlaut','o_umlaut_accent',
-#   'u', 'u_accent','u_umlaut','u_umlaut_accent'
-#   )
-# EQUIV = c('y','ly') #These are actually phoenetically equivalent?
 
 source('mhlib.r')
 

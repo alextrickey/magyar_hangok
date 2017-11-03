@@ -15,7 +15,8 @@ library(tuneR)
 # EQUIV = c('y','ly') #These are actually phoenetically equivalent?
 
 #Hard sets
-#gees = c(g,gy)
+#c(g,gy,dzs)
+#c(zs,dz,c)
 
 
 get_os <- function(){
@@ -70,10 +71,12 @@ print_intro <- function(character_map) {
   invisible(readLines("stdin",n=1))
 }
 
+
 letter_from_file <- function(sound_files) {
   letter_set = unique(gsub('_[0-9].mp3','',sound_files))
   return(letter_set)
 }
+
 
 get_user_letter <- function(letter_set) {
 
@@ -90,7 +93,8 @@ check_user_input <- function(user_letter,actual_letter,char) {
 
   #Look up non-ascii form
   actual_diacritic = char$lookup[actual_letter]
-  user_diacritic = char$lookup[user_letter]
+  user_diacritic = ifelse(is.element(user_letter,char$lookup),
+                          user_letter, char$lookup[user_letter])
 
   #Check answer, give feedback
   correct = actual_diacritic == user_diacritic

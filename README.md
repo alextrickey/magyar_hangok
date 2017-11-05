@@ -22,7 +22,9 @@ Hungarian Phonemes, allow the user to attempt to identify the phoneme and
 provide feedback about the user's accuracy.
 
 ### Requirements
-This is a command line utility which calls R. It requires that R and the library ```tuneR``` be installed as well as an audio player that can be accessed by R.
+This is a command line utility which calls R. It requires that R and the
+library ```tuneR``` be installed as well as an audio player that can be
+accessed by R.
 
 ### How to Use
 From your terminal ```cd``` to the directory containing the magyar_hangok.r

@@ -1,23 +1,7 @@
 #Libs
 library(tuneR)
 
-#TODO: Enable custom letter set practice
-#TODO: Allow user to control n trials
-
-# #Constants
-# VOWELS = c(
-#   'a', 'a_accent',
-#   'e', 'e_accent',
-#   'i', 'i_accent',
-#   'o', 'o_accent','o_umlaut','o_umlaut_accent',
-#   'u', 'u_accent','u_umlaut','u_umlaut_accent'
-#   )
-# EQUIV = c('y','ly') #These are actually phoenetically equivalent?
-
-#Hard sets
-#c(g,gy,dzs)
-#c(zs,dz,c)
-
+#TODO: Allow user to control n trials 
 
 get_os <- function(){
 #Source: https://www.r-bloggers.com/identifying-the-os-from-r/
@@ -61,13 +45,68 @@ print_intro <- function(character_map) {
   cat('\no------------------------------------------------------o')
   cat("\n\nPress [enter] to begin (or use 'ctrl+z' to exit at any time).")
   invisible(readLines("stdin",n=1))
+}
 
+
+custom_char_set <- function(char_lookup) {
+
+  cat('\nThe available sound files correspond to the following characters:\n\n')
+  cat('\t')
+  for(l in char_lookup){cat(l)}
+
+  cat("\n\nWould you like to use a custom subset of these characters (y/n)? ")
+  use_custom = invisible(readLines("stdin",n=1))
+  while(!is.element(use_custom,c('y','n'))) {
+      cat('Please respond with y or n: ')
+      use_custom = invisible(readLines("stdin",n=1))
+  }
+
+  custom_chars = NA
+  if(use_custom == 'y') {
+      cat('\n\n')
+      cat('Please list your character selection without spaces using diacritic')
+      cat('\nnotation. Here are some suggested sets:')
+      cat('\n Vowels: aáeéiíoöóőuüúű')
+      cat('\n Short O/U Variations: oöuü')
+      cat('\n Long O/U Variations: óőúű')
+      cat('\n Tricky Consonants: ccsggydzdzstyzsz')
+      cat('\nCharacters: ')
+      selection = invisible(readLines("stdin",n=1))
+      custom_chars = unique(parse_word(selection))
+
+      #remove bad characters
+      insufficient_chars = length(custom_chars)<2
+      unrecognized_inputs = setdiff(custom_chars,char_lookup)
+      while(insufficient_chars | length(unrecognized_inputs)>0){
+        if(length(unrecognized_inputs)>0){
+          cat("\nThese characters are not recognized: ")
+          for(l in unrecognized_inputs){cat(l)}
+        }
+        if(insufficient_chars){
+          cat("\nPlease enter at least two characters. ")
+          for(l in unrecognized_inputs){cat(l)}
+        }
+        cat('\nTry Again? Characters: ')
+        selection = invisible(readLines("stdin",n=1))
+        custom_chars = unique(parse_word(selection))
+        unrecognized_inputs = setdiff(custom_chars,char_lookup)
+        insufficient_chars = length(custom_chars)<2
+      }
+    }
+    return(custom_chars)
+}
+
+
+print_character_map <- function(character_map,subset=NA) {
   cat('\nThe letters to be used in the following exercises are listed',
       '\nbelow. You may use either the ascii or special characters to',
-      '\nrespond to the prompt.\n\n')
-  print(character_map)
-
-  cat("\nPress [enter] to begin the trials.")
+      '\nrespond to the sounds.\n\n')
+  if(anyNA(subset)){
+    print(character_map)
+  } else {
+      print(character_map[character_map$special %in% subset,])
+  }
+  cat("\nPress [enter] to begin trials.\n")
   invisible(readLines("stdin",n=1))
 }
 
@@ -89,7 +128,7 @@ get_user_letter <- function(letter_set) {
 }
 
 
-check_user_input <- function(user_letter,actual_letter,char) {
+check_accuracy <- function(user_letter,actual_letter,char) {
 
   #Look up non-ascii form
   actual_diacritic = char$lookup[actual_letter]

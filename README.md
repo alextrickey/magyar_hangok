@@ -4,8 +4,9 @@ As an armchair neuroscientist and native (non-bilingual) English speaker,
 I'm aware that
 my perceptual system is not tuned to perceive distinctions between certain
 non-english phonemes. As children learn language, their brains adapt to
-ignore differences between phonemes that do not affect the meaning of
-utterances. For instance, in Japanese the "L" and "R" sounds are
+ignore differences between sounds that do not affect the meaning of
+utterances in their language. For instance, in Japanese the "L" and "R"
+sounds are
 interchangeable and irrelevant to the meanings of spoken Japanese words.
 As a result, by adulthood most native Japanese speakers can no longer
 perceive the difference between those sounds.
@@ -21,7 +22,7 @@ Hungarian Phonemes, allow the user to attempt to identify the phoneme and
 provide feedback about the user's accuracy.
 
 ### Requirements
-This is a command line utility which calls R. It requires that R and the library ```tuneR``` be installed as well as an audio player that can be accessed by R. 
+This is a command line utility which calls R. It requires that R and the library ```tuneR``` be installed as well as an audio player that can be accessed by R.
 
 ### How to Use
 From your terminal ```cd``` to the directory containing the magyar_hangok.r
@@ -35,11 +36,13 @@ Follow the prompts in the command line or use ```ctrl+z``` to exit.
 
 ### Additional Resources for Learners
 >Alphabet Wiki: https://en.wikipedia.org/wiki/Hungarian_alphabet
-
+>
 >A Guy Saying Each Letter: https://www.youtube.com/watch?v=tjSQ3E1zSxo
-
+>
+>Vowel Tutorial: https://www.youtube.com/watch?v=KmlapDEW9sQ
+>
 >Free Course (in Beta): https://www.duolingo.com/course/hu/en/Learn-Hungarian-Online
-
+>
 >Entertaining/Informative Words of Encouragement: https://www.fluentin3months.com/hungarian-is-easy/
-
+>
 >Google! There are tons of free courses and resources.

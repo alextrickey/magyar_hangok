@@ -24,3 +24,19 @@ provide feedback about the user's accuracy.
 From your terminal ```cd``` to the directory containing the magyar_hangok.r
 and the sounds folder. Then run the command:```Rscript magyar_hangok.r```.
 Follow the prompts in the command line or use ```ctrl+z``` to exit.
+
+
+## References
+>Sounds/Letters:
+    http://www.hungarianreference.com/Hungarian-alphabet-phonetic-pronunciation.aspx
+
+## Additional Resources for Learners
+>Alphabet Wiki: https://en.wikipedia.org/wiki/Hungarian_alphabet
+
+>A Guy Saying Each Letter: https://www.youtube.com/watch?v=tjSQ3E1zSxo
+
+>Free Course (in Beta): https://www.duolingo.com/course/hu/en/Learn-Hungarian-Online
+
+>Entertaining/Informative Words of Encouragement: https://www.fluentin3months.com/hungarian-is-easy/
+
+>Google! There are tons of free courses and resources -- Please, send a PR if you find something good. :)

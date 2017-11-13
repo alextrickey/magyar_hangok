@@ -43,6 +43,10 @@ Follow the prompts in the command line or use ```ctrl+z``` to exit.
 >
 >Vowel Tutorial: https://www.youtube.com/watch?v=KmlapDEW9sQ
 >
+>Consonants: https://www.youtube.com/watch?v=wUCIwPnWPuc
+>
+>Even More on Vowels: https://www.youtube.com/watch?v=iLapC91cPPQ
+>
 >Free Course (in Beta): https://www.duolingo.com/course/hu/en/Learn-Hungarian-Online
 >
 >Entertaining/Informative Words of Encouragement: https://www.fluentin3months.com/hungarian-is-easy/
